@@ -37,32 +37,31 @@ button.purchased:hover {
 }
 
 button.glow {
-    box-shadow: 0px 0px 1.5px 2.5px #ABBC4D;
+    box-shadow: 0rem 0rem 0.5rem 0.5rem #ABBC4D;
 }
 
 #header-container {
     font-family: 'Roboto Mono';
     text-align: center;
-    font-size: 15px;
+    font-size: 28px;
 }
 
 #menu-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0px 0px 10px 0px;
+    margin: 0rem 0rem 0.5rem 0rem;
 }
 
 .menu-buttons {
     text-align: center;
-    font-size: 12px;
+    font-size: 22px;
+    width: 10rem;
+    height: 3rem;
     color: lightgray;
     background-color: darkslategrey;
-    width: 90px;
-    height: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
-    border-width: 3px;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+    border-width: 0.3rem;
     font-family: 'Roboto Mono';
     transition-duration: 0.5s;
 }
@@ -78,18 +77,20 @@ button.glow {
 }
 
 .generators-buttons {
-    height: 75px;
-	width: 140px;
-    margin: 5px 0px 5px 0px;
-    font-size: 8px;
+    margin: 0.4rem 0.2rem 0.4rem 0.2rem;
+    font-size: 21px;
     line-height: 2.5;
+    height: 11rem;
+    width: 20rem;
     font-family: 'Roboto Mono';
+    border-width: 0.3rem;
     color: lightgray;
     background-color: darkslategrey;
 }
 
 #changelog-container {
     text-align: center;
+    font-size: 22px;
 }
 
 #settings-container {
@@ -97,11 +98,11 @@ button.glow {
 }
 
 .settings-buttons {
-    font-size: 12px;
-    height: 25px;
+    font-size: 22px;
+    height: 3rem;
     font-family: 'Roboto Mono';
     color: lightgray;
-    border-width: 3px;
+    border-width: 0.3rem;
     margin: 5px;
     background-color: darkslategrey;
     border-color: gray;
