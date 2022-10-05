@@ -1,0 +1,115 @@
+body {
+    font-family: 'Roboto Mono';
+    background-color: darkslategrey;
+    color: lightgray;
+    user-select: none;
+}
+
+.is-removed-from-layout {
+    display: none !important;
+}
+
+button.canPurchase {
+    border-color: green;
+    transition-duration: 0.5s;
+}
+
+button.canPurchase:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+button.cantPurchase {
+    border-color: red;
+}
+
+button.cantPurchase:hover {
+    cursor: not-allowed;
+}
+
+button.purchased {
+    border-color: purple;
+}
+
+button.purchased:hover {
+    cursor: not-allowed;
+}
+
+button.glow {
+    box-shadow: 0px 0px 1.5px 2.5px #ABBC4D;
+}
+
+#header-container {
+    font-family: 'Roboto Mono';
+    text-align: center;
+    font-size: 15px;
+}
+
+#menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 10px 0px;
+}
+
+.menu-buttons {
+    text-align: center;
+    font-size: 12px;
+    color: lightgray;
+    background-color: darkslategrey;
+    width: 90px;
+    height: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-width: 3px;
+    font-family: 'Roboto Mono';
+    transition-duration: 0.5s;
+}
+
+.menu-buttons:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+#generators-container {
+    text-align: center;
+}
+
+.generators-buttons {
+    height: 75px;
+	width: 140px;
+    margin: 5px 0px 5px 0px;
+    font-size: 8px;
+    line-height: 2.5;
+    font-family: 'Roboto Mono';
+    color: lightgray;
+    background-color: darkslategrey;
+}
+
+#changelog-container {
+    text-align: center;
+}
+
+#settings-container {
+    text-align: center;
+}
+
+.settings-buttons {
+    font-size: 12px;
+    height: 25px;
+    font-family: 'Roboto Mono';
+    color: lightgray;
+    border-width: 3px;
+    margin: 5px;
+    background-color: darkslategrey;
+    border-color: gray;
+    transition-duration: 0.5s;
+}
+
+.settings-buttons:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}

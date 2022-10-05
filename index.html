@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <script src="src/helper.js" defer></script>
+    <script src="src/data.js" defer></script>
+    <script src="src/ui.js" defer></script>
+    <script src="src/generators.js" defer></script>
+    <script src="src/prestige.js" defer></script>
+    <script src="src/upgrades.js" defer></script>
+    <script src="src/settings.js" defer></script>
+    <script src="src/main.js" defer></script>
+    <title>Points Incremental</title>
+</head>
+<body>
+    <div id="header-container">
+        <p><span id="points-text" style="color: #ABBC4D">100,000</span> points [+<span id="pointsPerSecond-text" style="color: #ABBC4D">0.00</span> points/s]</p>
+    </div>
+    <div id="menu-container">
+        <button onclick="openMenu(generatorsMenuContainerElement, generatorsMenuButtonElement)" class="menu-buttons" id="generators-menu-button">Generators</button>
+        <button onclick="openMenu(prestigeMenuContainerElement, prestigeMenuButtonElement)" class="menu-buttons" id="prestige-menu-button">Prestige</button>
+        <button onclick="openMenu(upgradesMenuContainerElement, upgradesMenuButtonElement)" class="menu-buttons" id="upgrades-menu-button">Upgrades</button>
+        <button onclick="openMenu(changelogMenuContainerElement, changelogMenuButtonElement)" class="menu-buttons" id="changelog-menu-button">Changelog</button>
+        <button onclick="openMenu(settingsMenuContainerElement, settingsMenuButtonElement)" class="menu-buttons" id="settings-menu-button">Settings</button>
+    </div>
+    <div id="generators-container">
+        <button onclick="toggleBuyGeneratorAmount()" id="toggleBuyGeneratorAmountButton" class="settings-buttons">Buy Amount: <span id="buyAmountText">1</span>x</button>
+        <button onclick="buyMaxGenerators()" id="buyMaxButton" class="settings-buttons">Buy Max (M)</button> <br>
+
+        <button onclick="buyGenerator(0)" class="generators-buttons" id="generator0-button">
+            <span id="generator0-name">Generator 1</span> (<span id="generator0-level">0</span>)<br>
+            +<span id="generator0-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator0-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(1)" class="generators-buttons" id="generator1-button">
+            <span id="generator1-name">Generator 2</span> (<span id="generator1-level">0</span>)<br>
+            +<span id="generator1-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator1-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(2)" class="generators-buttons" id="generator2-button">
+            <span id="generator2-name">Generator 3</span> (<span id="generator2-level">0</span>)<br>
+            +<span id="generator2-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator2-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(3)" class="generators-buttons" id="generator3-button">
+            <span id="generator3-name">Generator 4</span> (<span id="generator3-level">0</span>)<br>
+            +<span id="generator3-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator3-cost">100,000</span> points
+        </button> <br>
+        <button onclick="buyGenerator(4)" class="generators-buttons" id="generator4-button">
+            <span id="generator4-name">Generator 5</span> (<span id="generator4-level">0</span>)<br>
+            +<span id="generator4-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator4-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(5)" class="generators-buttons" id="generator5-button">
+            <span id="generator5-name">Generator 6</span> (<span id="generator5-level">0</span>)<br>
+            +<span id="generator5-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator5-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(6)" class="generators-buttons" id="generator6-button">
+            <span id="generator6-name">Generator 7</span> (<span id="generator6-level">0</span>)<br>
+            +<span id="generator6-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator6-cost">100,000</span> points
+        </button>
+        <button onclick="buyGenerator(7)" class="generators-buttons" id="generator7-button">
+            <span id="generator7-name">Generator 8</span> (<span id="generator7-level">0</span>)<br>
+            +<span id="generator7-effect">1.00e308</span> points/s <br>
+            Cost: <span id="generator7-cost">100,000</span> points
+        </button> <br>
+    </div>
+    <div id="prestige-container">
+        
+    </div>
+    <div id="upgrades-container">
+        
+    </div>
+    <div id="changelog-container">
+        v0.0.0 10/??/2022 <br>
+        - Initial Release
+    </div>
+    <div id="settings-container">
+        <button onclick="saveData()" class="settings-buttons" id="save-data-button">Save Data</button>
+        <button onclick="resetData()" class="settings-buttons" id="reset-data-button">Reset Data</button>
+        <button onclick="importData()" class="settings-buttons" id="import-data-button">Import Data</button>
+        <button onclick="exportData()" class="settings-buttons" id="export-data-button">Export Data</button>
+        <br>
+        <button onclick="toggleAFKGains()" class="settings-buttons" id="toggle-afk-gains-button">AFK Gains: ON</button>
+        <button onclick="toggleMenuButtonGlow()" class="settings-buttons" id="toggle-menu-button-glow-button">Menu Button Glow: ON</button>
+    </div>
+</body>
+</html>
