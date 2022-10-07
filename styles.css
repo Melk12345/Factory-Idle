@@ -44,6 +44,7 @@ button.glow {
     font-family: 'Roboto Mono';
     text-align: center;
     font-size: 28px;
+    margin: 0px;
 }
 
 #menu-container {
@@ -79,7 +80,7 @@ button.glow {
 .generators-buttons {
     margin: 0.4rem 0.2rem 0.4rem 0.2rem;
     font-size: 21px;
-    line-height: 2.5;
+    line-height: 1.75;
     height: 11rem;
     width: 20rem;
     font-family: 'Roboto Mono';

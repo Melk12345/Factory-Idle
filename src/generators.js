@@ -52,17 +52,19 @@ function loadGeneratorText() {
 
 function updateGeneratorsText() {
     for (id in generators) {
-        const checkForBuyMax = data.buyGeneratorAmount === -1 ? format(getMaxGeneratorCost(1, id)) : format(getMaxGeneratorCost(data.buyGeneratorAmount, id));
+        const amountBonus = ((Math.floor(data.generatorLevels[id] / 25) * 0.25) + 1)
+        const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id);
         document.getElementById(`generator${id}-name`).innerHTML = generators[id].name;
         document.getElementById(`generator${id}-level`).innerHTML = formatWithCommas(data.generatorLevels[id]);
+        document.getElementById(`generator${id}-amountBonus`).innerHTML = format(amountBonus);
         document.getElementById(`generator${id}-effect`).innerHTML = format(generators[id].baseEffect);
-        document.getElementById(`generator${id}-cost`).innerHTML = checkForBuyMax;
+        document.getElementById(`generator${id}-cost`).innerHTML = format(checkForBuyMax);
     }
 }
 
 function shouldGeneratorsReveal() {
     for (id in generators) {
-        if (id > 0) document.getElementById(`generator${id}-button`).style.display = data.generatorLevels[id - 1] > 0 ? "initial" : "none";
+        if (id > 0) document.getElementById(`generator${id}-button`).style.visibility = data.generatorLevels[id - 1] > 0 ? "initial" : "hidden";
     }
 }
 
@@ -114,8 +116,8 @@ function buyGenerator(id) {
 
 function toggleBuyGeneratorAmount() {
     if (data.buyGeneratorAmount === 1) {
-        data.buyGeneratorAmount = 10;
-    } else if (data.buyGeneratorAmount === 10) {
+        data.buyGeneratorAmount = 25;
+    } else if (data.buyGeneratorAmount === 25) {
         data.buyGeneratorAmount = 100;
     } else if (data.buyGeneratorAmount === 100) {
         data.buyGeneratorAmount = -1;
