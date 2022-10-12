@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto Mono';
-    background-color: darkslategrey;
+    background-color: #333333;
     color: lightgray;
     user-select: none;
 }
@@ -60,7 +60,7 @@ button.glow {
     width: 10rem;
     height: 3rem;
     color: lightgray;
-    background-color: darkslategrey;
+    background-color: #333333;
     margin: 0rem 0.5rem 0rem 0.5rem;
     border-width: 0.3rem;
     font-family: 'Roboto Mono';
@@ -86,7 +86,12 @@ button.glow {
     font-family: 'Roboto Mono';
     border-width: 0.3rem;
     color: lightgray;
-    background-color: darkslategrey;
+    background-color: #333333;
+}
+
+#prestige-container {
+    text-align: center;
+    font-size: 21px;
 }
 
 #changelog-container {
@@ -105,7 +110,7 @@ button.glow {
     color: lightgray;
     border-width: 0.3rem;
     margin: 5px;
-    background-color: darkslategrey;
+    background-color: #333333;
     border-color: gray;
     transition-duration: 0.5s;
 }
