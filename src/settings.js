@@ -18,8 +18,9 @@ function resetData() {
 
     data.time = Date.now();
     data.points = 10;
+    data.pointsThisRun = 10;
     data.prestigePoints = 0;
-    data.buyGeneratorAmount = 1
+    data.buyGeneratorAmount = 1;
     data.generatorLevels = [0, 0, 0, 0, 0, 0, 0, 0];
     data.upgradeLevels = [0, 0, 0, 0, 0, 0, 0, 0];
     location.reload();
@@ -75,4 +76,15 @@ function getToggleMenuButtonGlowText() {
 function toggleMenuButtonGlow() {
     data.menuButtonGlow = !data.menuButtonGlow;
     getToggleMenuButtonGlowText();
+}
+
+const togglePrestigeConfirmationElement = document.getElementById("toggle-prestige-confirmation-button");
+
+function getTogglePrestigeConfirmationText() {
+    togglePrestigeConfirmationElement.textContent = data.prestigeConfirmation ? "Prestige Confirmation: ON" : "Prestige Confirmation: OFF";
+}
+
+function togglePrestigeConfirmation() {
+    data.prestigeConfirmation = !data.prestigeConfirmation;
+    getTogglePrestigeConfirmationText();
 }

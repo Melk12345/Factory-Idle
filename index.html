@@ -84,6 +84,30 @@
         The more points you get, the more prestige points you can claim! <br> 
         Prestige points increase points gain and unlock new upgrades, but <br>
         you will need to sell your generators and start over.
+        <br><br><br>
+        <table align="center" width="50%">
+            <tr align="left">
+                <td>Current prestige points:</td>
+                <td><span id="current-prestige-points">0</span></td>
+            </tr>
+            <tr align="left">
+                <td>Bonus per prestige point:</td>
+                <td><span id="bonus-per-prestige-point">2</span>%</td>
+            </tr>
+            <tr align="left">
+                <td>Prestige points gained from prestige:</td>
+                <td><span id="prestige-points-gained-from-prestige">100</span></td>
+            </tr>
+            <tr align="left">
+                <td>Bonus from current prestige points:</td>
+                <td><span id="bonus-from-current-prestige-points">0</span>%</td>
+            </tr>
+            <tr align="left">
+                <td>Bonus from prestige points after prestige:</td>
+                <td><span id="bonus-from-prestige-points-after-prestige">200</span>%</td>
+            </tr>
+        </table>
+        <button onclick="doPrestige()" id="prestige-button">Prestige!</button> 
     </div>
     <div id="upgrades-container">
         
@@ -100,6 +124,7 @@
         <br>
         <button onclick="toggleAFKGains()" class="settings-buttons" id="toggle-afk-gains-button">AFK Gains: ON</button>
         <button onclick="toggleMenuButtonGlow()" class="settings-buttons" id="toggle-menu-button-glow-button">Menu Button Glow: ON</button>
+        <button onclick="togglePrestigeConfirmation()" class="settings-buttons" id="toggle-prestige-confirmation-button">Prestige Confirmation: ON</button>
     </div>
 </body>
 </html>

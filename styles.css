@@ -94,6 +94,18 @@ button.glow {
     font-size: 21px;
 }
 
+#prestige-button {
+    margin: 4rem 2rem 4rem 2rem;
+    font-size: 40px;
+    line-height: 1.75;
+    height: 6rem;
+    width: 25rem;
+    font-family: 'Roboto Mono';
+    border-width: 0.3rem;
+    color: lightgray;
+    background-color: #333333;
+}
+
 #changelog-container {
     text-align: center;
     font-size: 22px;

@@ -14,16 +14,20 @@ function getPointsPerSecondText() {
 function getPointsPerSecond() {
     let pointsPerSecond = 0;
     for (let id = 0; id < generators.length; id++) {
-        const amountBonus = ((Math.floor(data.generatorLevels[id] / 25) * 0.25) + 1)
-        pointsPerSecond += getGeneratorEffect(id) * amountBonus;
+        const amountBonus = ((Math.floor(data.generatorLevels[id] / 25) * 0.25) + 1);
+        const prestigePointBonus = 1 + (data.prestigePoints * getPrestigePointBonus());
+        pointsPerSecond += getGeneratorEffect(id) * amountBonus * prestigePointBonus;
     }
     return pointsPerSecond;
 }
 
 function productionLoop(deltaTime) {
     data.points += getPointsPerSecond() * deltaTime;
+    data.pointsThisRun += getPointsPerSecond() * deltaTime;
     getPointsText();
     updateGeneratorBorderColor();
+    updatePrestigeInfo();
+    updatePrestigeButtonColor();
     getGeneratorMenuButtonGlow();
 }
 
@@ -65,6 +69,7 @@ function load() {
     calculateAFKGains();
     getPointsPerSecondText();
     loadGeneratorText();
+    loadPrestigeText()
     loadSettingsText();
 }
 
