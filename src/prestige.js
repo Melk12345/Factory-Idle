@@ -36,6 +36,7 @@ function updatePrestigeButtonColor() {
 }
 
 function doPrestige() {
+    if (getPrestigePointsToGain() < 1) return;
     if (data.prestigeConfirmation && !confirm("Are you sure you want to prestige?")) return;
 
     data.prestigePoints += getPrestigePointsToGain();
