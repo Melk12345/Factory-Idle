@@ -5,7 +5,7 @@ const saveName = 'pointsIncrementalSave';
 function saveData() {
     data.time = Date.now();
     window.localStorage.setItem(saveName, JSON.stringify(data));
-    alert("Game saved!");
+    console.log("Game saved!");
 }
 
 function loadSavedData() {
