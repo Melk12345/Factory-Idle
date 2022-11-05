@@ -48,6 +48,7 @@ function loadGeneratorText() {
     updateGeneratorsText();
     updateBuyGeneratorAmountButtonText();
     shouldGeneratorsReveal();
+    getToggleBuyMaxText();
 }
 
 function updateGeneratorsText() {
@@ -164,8 +165,19 @@ function buyMaxGenerators() {
     getPointsPerSecondText();
 }
 
-window.addEventListener('keydown', function (event) {
-    if (event.key === 'm') {
-        buyMaxGenerators();
-    }
-});
+const buyMaxToggleElement = document.getElementById("buyMaxToggle");
+
+function getToggleBuyMaxText() {
+    buyMaxToggleElement.textContent = data.buyMaxToggle ? "ON" : "OFF";
+}
+
+function toggleBuyMax() {
+    data.buyMaxToggle = !data.buyMaxToggle;
+    getToggleBuyMaxText()
+}
+
+function executeBuyMaxGenerators() {
+    if (!data.buyMaxToggle) return;
+
+    buyMaxGenerators();
+}

@@ -44,5 +44,6 @@ function doPrestige() {
     data.pointsThisRun = 10;
     data.generatorLevels = [0, 0, 0, 0, 0, 0, 0, 0];
 
-    location.reload();
+    activeMenu = prestigeMenuContainerElement;
+    activeMenuButton = prestigeMenuButtonElement;
 }

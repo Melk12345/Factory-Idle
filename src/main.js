@@ -25,6 +25,7 @@ function productionLoop(deltaTime) {
     data.points += getPointsPerSecond() * deltaTime;
     data.pointsThisRun += getPointsPerSecond() * deltaTime;
     getPointsText();
+    executeBuyMaxGenerators();
     updateGeneratorBorderColor();
     updatePrestigeInfo();
     updatePrestigeButtonColor();

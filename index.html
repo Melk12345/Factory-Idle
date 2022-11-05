@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
     <script src="src/helper.js" defer></script>
-    <script src="src/data.js" defer></script>
     <script src="src/ui.js" defer></script>
+    <script src="src/data.js" defer></script>
     <script src="src/generators.js" defer></script>
     <script src="src/prestige.js" defer></script>
     <script src="src/upgrades.js" defer></script>
@@ -29,7 +29,7 @@
     </div>
     <div id="generators-container">
         <button onclick="toggleBuyGeneratorAmount()" id="toggleBuyGeneratorAmountButton" class="settings-buttons">Buy Amount: <span id="buyAmountText">1</span>x</button>
-        <button onclick="buyMaxGenerators()" id="buyMaxButton" class="settings-buttons">Buy Max (M)</button> <br>
+        <button onclick="toggleBuyMax()" id="buyMaxButton" class="settings-buttons">Buy Max: <span id="buyMaxToggle">OFF</span></button> <br>
 
         <button onclick="buyGenerator(0)" class="generators-buttons" id="generator0-button">
             <span id="generator0-name">Generator 1</span> (<span id="generator0-level">0</span>)<br>
