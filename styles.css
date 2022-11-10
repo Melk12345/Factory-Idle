@@ -36,10 +36,6 @@ button.purchased:hover {
     cursor: not-allowed;
 }
 
-button.glow {
-    box-shadow: 0rem 0rem 0.5rem 0.5rem #ABBC4D;
-}
-
 #header-container {
     font-family: 'Roboto Mono';
     text-align: center;

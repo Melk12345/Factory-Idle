@@ -52,7 +52,7 @@ function loadGeneratorText() {
 }
 
 function updateGeneratorsText() {
-    for (id in generators) {
+    for (let id in generators) {
         const amountBonus = ((Math.floor(data.generatorLevels[id] / 25) * 0.25) + 1)
         const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id);
         document.getElementById(`generator${id}-name`).innerHTML = generators[id].name;
@@ -64,13 +64,13 @@ function updateGeneratorsText() {
 }
 
 function shouldGeneratorsReveal() {
-    for (id in generators) {
+    for (let id in generators) {
         if (id > 0) document.getElementById(`generator${id}-button`).style.visibility = data.generatorLevels[id - 1] > 0 ? "initial" : "hidden";
     }
 }
 
 function updateGeneratorBorderColor() {
-    for (id in generators) {
+    for (let id in generators) {
         const element = document.getElementById(`generator${id}-button`);
         const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id)
         if (data.points < checkForBuyMax) {
@@ -82,24 +82,6 @@ function updateGeneratorBorderColor() {
         }
     }
 }
-
-function getGeneratorMenuButtonGlow() {
-    const element = document.getElementById("generators-menu-button");
-
-    if (!data.menuButtonGlow) {
-        element.classList.remove("glow");
-        return;
-    }
-
-    for (id in generators) {
-        const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id)
-        if (data.points >= checkForBuyMax) {
-            element.classList.add("glow");
-            return;
-        }
-    }
-    element.classList.remove("glow");
-  }
 
 function buyGenerator(id) {
     if (data.points < getMaxGeneratorCost(data.buyGeneratorAmount, id)) return;

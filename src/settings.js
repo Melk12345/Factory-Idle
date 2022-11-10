@@ -53,7 +53,7 @@ function exportData() {
 
 function loadSettingsText() {
     getAFKGainsButtonText();
-    getToggleMenuButtonGlowText();
+    getTogglePrestigeConfirmationText();
 }
 
 const toggleAFKGainsButtonElement = document.getElementById("toggle-afk-gains-button");
@@ -65,17 +65,6 @@ function getAFKGainsButtonText() {
 function toggleAFKGains() {
     data.AFKGains = !data.AFKGains;
     getAFKGainsButtonText();
-}
-
-const toggleMenuButtonGlowButtonElement = document.getElementById("toggle-menu-button-glow-button");
-
-function getToggleMenuButtonGlowText() {
-    toggleMenuButtonGlowButtonElement.textContent = data.menuButtonGlow ? "Menu Button Glow: ON" : "Menu Button Glow: OFF";
-}
-
-function toggleMenuButtonGlow() {
-    data.menuButtonGlow = !data.menuButtonGlow;
-    getToggleMenuButtonGlowText();
 }
 
 const togglePrestigeConfirmationElement = document.getElementById("toggle-prestige-confirmation-button");
