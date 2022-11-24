@@ -10,7 +10,7 @@ let data = {
     buyGeneratorAmount: 1,
     generatorLevels: [0, 0, 0, 0, 0, 0, 0, 0],
 
-    // prestieg
+    // prestige
     prestigePoints: 0,
 
     // upgrades

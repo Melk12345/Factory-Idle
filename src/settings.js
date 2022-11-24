@@ -77,3 +77,6 @@ function togglePrestigeConfirmation() {
     data.prestigeConfirmation = !data.prestigeConfirmation;
     getTogglePrestigeConfirmationText();
 }
+
+
+

@@ -1,11 +1,11 @@
-const currentPrestigePointsElement = document.getElementById("current-prestige-points");
 const bonusPerPrestigePointElement = document.getElementById("bonus-per-prestige-point");
+const currentPrestigePointsElement = document.getElementById("current-prestige-points");
 const prestigePointsGainedFromPrestigeElement = document.getElementById("prestige-points-gained-from-prestige");
 const bonusFromCurrentPrestigePointsElement = document.getElementById("bonus-from-current-prestige-points");
 const bonusFromPrestigePointsAfterPrestigeElement = document.getElementById("bonus-from-prestige-points-after-prestige");
 
 function getPrestigePointsToGain() {
-    return Math.floor(150 * Math.sqrt(data.pointsThisRun/(400000000000/9)));
+    return 150 * Math.sqrt(data.pointsThisRun/(400000000000/9));
 }
 
 function getPrestigePointBonus() {
@@ -17,11 +17,11 @@ function loadPrestigeText() {
 }
 
 function updatePrestigeInfo() {
-    currentPrestigePointsElement.innerHTML = formatWithCommas(data.prestigePoints);
     bonusPerPrestigePointElement.innerHTML = getPrestigePointBonus();
-    prestigePointsGainedFromPrestigeElement.innerHTML = formatWithCommas(getPrestigePointsToGain());
-    bonusFromCurrentPrestigePointsElement.innerHTML = formatWithCommas(getPrestigePointBonus() * data.prestigePoints);
-    bonusFromPrestigePointsAfterPrestigeElement.innerHTML = formatWithCommas(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints));
+    currentPrestigePointsElement.innerHTML = Math.floor(format(data.prestigePoints));
+    prestigePointsGainedFromPrestigeElement.innerHTML = Math.floor(format(getPrestigePointsToGain()));
+    bonusFromCurrentPrestigePointsElement.innerHTML = Math.floor(format(getPrestigePointBonus() * data.prestigePoints));
+    bonusFromPrestigePointsAfterPrestigeElement.innerHTML = Math.floor(format(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints)));
 }
 
 function updatePrestigeButtonColor() {
@@ -43,7 +43,4 @@ function doPrestige() {
     data.points = 10;
     data.pointsThisRun = 10;
     data.generatorLevels = [0, 0, 0, 0, 0, 0, 0, 0];
-
-    activeMenu = prestigeMenuContainerElement;
-    activeMenuButton = prestigeMenuButtonElement;
 }
