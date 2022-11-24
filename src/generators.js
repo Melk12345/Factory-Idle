@@ -57,9 +57,9 @@ function updateGeneratorsText() {
         const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id);
         document.getElementById(`generator${id}-name`).innerHTML = generators[id].name;
         document.getElementById(`generator${id}-level`).innerHTML = formatWithCommas(data.generatorLevels[id]);
-        document.getElementById(`generator${id}-amountBonus`).innerHTML = format(amountBonus);
-        document.getElementById(`generator${id}-effect`).innerHTML = format(generators[id].baseEffect);
-        document.getElementById(`generator${id}-cost`).innerHTML = format(checkForBuyMax);
+        document.getElementById(`generator${id}-amountBonus`).innerHTML = format(amountBonus, 2);
+        document.getElementById(`generator${id}-effect`).innerHTML = format(generators[id].baseEffect, 2);
+        document.getElementById(`generator${id}-cost`).innerHTML = format(checkForBuyMax, 2);
     }
 }
 

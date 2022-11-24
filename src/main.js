@@ -4,11 +4,11 @@ const pointsTextElement = document.getElementById("points-text");
 const pointsPerSecondTextElement = document.getElementById("pointsPerSecond-text");
 
 function getPointsText() {
-    pointsTextElement.textContent = format(data.points);
+    pointsTextElement.textContent = format(data.points, 2);
 }
 
 function getPointsPerSecondText() {
-    pointsPerSecondTextElement.textContent = format(getPointsPerSecond());
+    pointsPerSecondTextElement.textContent = format(getPointsPerSecond(), 2);
 }
 
 function getPointsPerSecond() {
@@ -50,8 +50,8 @@ function calculateAFKGains() {
     const days = Math.floor(delta / (1000 * 60 * 60 * 24));
 
     console.log(`You were gone for ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`); 
-    console.log(`pointsGained = ${getPointsPerSecond()} (points/s) * ${format(timeAwayInSeconds)} (time away in seconds)`);
-    console.log(`You gained ${format(pointsGained)} points while you were away!`);
+    console.log(`pointsGained = ${getPointsPerSecond()} (points/s) * ${format(timeAwayInSeconds, 2)} (time away in seconds)`);
+    console.log(`You gained ${format(pointsGained, 2)} points while you were away!`);
 }
 
 let lastUpdate = Date.now();

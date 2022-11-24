@@ -5,7 +5,7 @@ const bonusFromCurrentPrestigePointsElement = document.getElementById("bonus-fro
 const bonusFromPrestigePointsAfterPrestigeElement = document.getElementById("bonus-from-prestige-points-after-prestige");
 
 function getPrestigePointsToGain() {
-    return 150 * Math.sqrt(data.pointsThisRun/(400000000000/9));
+    return 150 * Math.log(data.pointsThisRun/(1e12));
 }
 
 function getPrestigePointBonus() {
@@ -18,10 +18,10 @@ function loadPrestigeText() {
 
 function updatePrestigeInfo() {
     bonusPerPrestigePointElement.innerHTML = getPrestigePointBonus();
-    currentPrestigePointsElement.innerHTML = Math.floor(format(data.prestigePoints));
-    prestigePointsGainedFromPrestigeElement.innerHTML = Math.floor(format(getPrestigePointsToGain()));
-    bonusFromCurrentPrestigePointsElement.innerHTML = Math.floor(format(getPrestigePointBonus() * data.prestigePoints));
-    bonusFromPrestigePointsAfterPrestigeElement.innerHTML = Math.floor(format(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints)));
+    currentPrestigePointsElement.innerHTML = format(Math.floor(data.prestigePoints), 0);
+    prestigePointsGainedFromPrestigeElement.innerHTML = format(Math.floor(getPrestigePointsToGain()), 0);
+    bonusFromCurrentPrestigePointsElement.innerHTML = format(Math.floor(getPrestigePointBonus() * data.prestigePoints), 0);
+    bonusFromPrestigePointsAfterPrestigeElement.innerHTML = format(Math.floor(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints)), 0);
 }
 
 function updatePrestigeButtonColor() {
