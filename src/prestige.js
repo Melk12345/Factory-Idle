@@ -5,7 +5,7 @@ const bonusFromCurrentPrestigePointsElement = document.getElementById("bonus-fro
 const bonusFromPrestigePointsAfterPrestigeElement = document.getElementById("bonus-from-prestige-points-after-prestige");
 
 function getPrestigePointsToGain() {
-    return 150 * Math.log(data.pointsThisRun/(1e12));
+    return 150 * Math.sqrt(data.pointsThisRun/(1e12));
 }
 
 function getPrestigePointBonus() {
