@@ -87,4 +87,4 @@ function autoSaveData() {
 
 setInterval(mainLoop, 50);
 setInterval(autoSaveData, 15000);
-setInterval(executeBuyMaxGenerators, 500);
+setInterval(executeBuyMaxGenerators, 250);
