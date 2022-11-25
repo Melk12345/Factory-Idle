@@ -1,3 +1,5 @@
+"use strict";
+
 const generators = [{
     name: "Generator 1",
     baseEffect: 1.00,
@@ -41,7 +43,7 @@ const generators = [{
 }]
 
 function getGeneratorEffect(id) {
-    return generators[id].baseEffect * data.generatorLevels[id];
+    return generators[id].baseEffect * data.generatorAmounts[id];
 }
 
 function loadGeneratorText() {
@@ -53,10 +55,10 @@ function loadGeneratorText() {
 
 function updateGeneratorsText() {
     for (let id in generators) {
-        const amountBonus = ((Math.floor(data.generatorLevels[id] / 25) * 0.25) + 1)
+        const amountBonus = ((Math.floor(data.generatorAmounts[id] / 25) * 0.25) + 1)
         const checkForBuyMax = data.buyGeneratorAmount === -1 ? getMaxGeneratorCost(1, id) : getMaxGeneratorCost(data.buyGeneratorAmount, id);
         document.getElementById(`generator${id}-name`).innerHTML = generators[id].name;
-        document.getElementById(`generator${id}-level`).innerHTML = formatWithCommas(data.generatorLevels[id]);
+        document.getElementById(`generator${id}-amount`).innerHTML = formatWithCommas(data.generatorAmounts[id]);
         document.getElementById(`generator${id}-amountBonus`).innerHTML = format(amountBonus, 2);
         document.getElementById(`generator${id}-effect`).innerHTML = format(generators[id].baseEffect, 2);
         document.getElementById(`generator${id}-cost`).innerHTML = format(checkForBuyMax, 2);
@@ -65,7 +67,7 @@ function updateGeneratorsText() {
 
 function shouldGeneratorsReveal() {
     for (let id in generators) {
-        if (id > 0) document.getElementById(`generator${id}-button`).style.visibility = data.generatorLevels[id - 1] > 0 ? "initial" : "hidden";
+        if (id > 0) document.getElementById(`generator${id}-button`).style.visibility = data.generatorAmounts[id - 1] > 0 ? "initial" : "hidden";
     }
 }
 
@@ -91,7 +93,7 @@ function buyGenerator(id) {
     const cost = checkForBuyMaxCost;
 
     data.points -= cost
-    data.generatorLevels[id] += amount;
+    data.generatorAmounts[id] += amount;
     updateGeneratorsText();
     shouldGeneratorsReveal();
     getPointsPerSecondText();
@@ -121,15 +123,15 @@ function updateBuyGeneratorAmountButtonText() {
 function getMaxGeneratorCost(numberToBuy, id) {
     const baseCost = generators[id].baseCost;
     const growthRate = generators[id].growthRate;
-    const level = data.generatorLevels[id];
-    return baseCost * Math.pow(growthRate, level) * ((Math.pow(growthRate, numberToBuy) - 1) / (growthRate - 1));
+    const amount = data.generatorAmounts[id];
+    return baseCost * Math.pow(growthRate, amount) * ((Math.pow(growthRate, numberToBuy) - 1) / (growthRate - 1));
 }
 
 function getMaxGeneratorAmount(points, id) {
     const baseCost = generators[id].baseCost;
     const growthRate = generators[id].growthRate;
-    const level = data.generatorLevels[id];
-    return Math.floor(Math.log((points * (growthRate - 1)) / (baseCost * Math.pow(growthRate, level)) + 1) / Math.log(growthRate));
+    const amount = data.generatorAmounts[id];
+    return Math.floor(Math.log((points * (growthRate - 1)) / (baseCost * Math.pow(growthRate, amount)) + 1) / Math.log(growthRate));
 }
 
 function buyMaxGenerators() {
@@ -139,7 +141,7 @@ function buyMaxGenerators() {
         const cost = getMaxGeneratorCost(amount, i);
         if (element.style.display !== "hidden" && element.classList.contains("canPurchase")) {
             data.points -= cost;
-            data.generatorLevels[i] += amount;
+            data.generatorAmounts[i] += amount;
         }
     }
     updateGeneratorsText();

@@ -1,3 +1,5 @@
+"use strict";
+
 const bonusPerPrestigePointElement = document.getElementById("bonus-per-prestige-point");
 const currentPrestigePointsElement = document.getElementById("current-prestige-points");
 const prestigePointsGainedFromPrestigeElement = document.getElementById("prestige-points-gained-from-prestige");
@@ -42,5 +44,9 @@ function doPrestige() {
     data.prestigePoints += getPrestigePointsToGain();
     data.points = 10;
     data.pointsThisRun = 10;
-    data.generatorLevels = [0, 0, 0, 0, 0, 0, 0, 0];
+    data.generatorAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
+
+    updateGeneratorsText();
+    shouldGeneratorsReveal();
+    getPointsPerSecondText();
 }

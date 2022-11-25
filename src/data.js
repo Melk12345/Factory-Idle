@@ -1,3 +1,5 @@
+"use strict";
+
 let data = {
     // offline progress
     time: Date.now(),
@@ -8,13 +10,13 @@ let data = {
     points: 10,
     pointsThisRun: 10,
     buyGeneratorAmount: 1,
-    generatorLevels: [0, 0, 0, 0, 0, 0, 0, 0],
+    generatorAmounts: [0, 0, 0, 0, 0, 0, 0, 0],
 
     // prestige
     prestigePoints: 0,
 
     // upgrades
-    upgradeLevels: [0, 0, 0, 0, 0, 0, 0, 0],
+    upgradeAmounts: [0, 0, 0, 0, 0, 0, 0, 0],
 
     // settings
     menuButtonGlow: true,

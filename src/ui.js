@@ -18,7 +18,7 @@ const upgradesMenuButtonElement = document.getElementById("upgrades-menu-button"
 const changelogMenuButtonElement = document.getElementById("changelog-menu-button");
 const settingsMenuButtonElement = document.getElementById("settings-menu-button");
 
-const selectedButtonBorderColor = 'Orange';
+const selectedButtonBorderColor = 'DarkOrange';
 const defaultButtonBorderColor = 'Gray';
 
 let activeMenuButton = generatorsMenuButtonElement;

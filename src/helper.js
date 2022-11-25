@@ -1,3 +1,5 @@
+"use strict";
+
 function format(amount, decimalPlaces) {
     let power = Math.floor(Math.log10(Math.floor(amount)));
     let mantissa = amount/Math.pow(10, power);

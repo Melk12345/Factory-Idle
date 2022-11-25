@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto Mono';
     background-color: #333333;
-    color: lightgray;
+    color: darkgray;
     user-select: none;
 }
 
@@ -10,7 +10,7 @@ body {
 }
 
 button.canPurchase {
-    border-color: green;
+    border-color: darkgreen;
     transition-duration: 0.5s;
 }
 
@@ -21,7 +21,7 @@ button.canPurchase:hover {
 }
 
 button.cantPurchase {
-    border-color: red;
+    border-color: darkred;
 }
 
 button.cantPurchase:hover {
@@ -55,7 +55,7 @@ button.purchased:hover {
     font-size: 22px;
     width: 10rem;
     height: 3rem;
-    color: lightgray;
+    color: darkgray;
     background-color: #333333;
     margin: 0rem 0.5rem 0rem 0.5rem;
     border-width: 0.3rem;
@@ -81,7 +81,7 @@ button.purchased:hover {
     width: 20rem;
     font-family: 'Roboto Mono';
     border-width: 0.3rem;
-    color: lightgray;
+    color: darkgray;
     background-color: #333333;
 }
 
@@ -98,7 +98,7 @@ button.purchased:hover {
     width: 25rem;
     font-family: 'Roboto Mono';
     border-width: 0.3rem;
-    color: lightgray;
+    color: darkgray;
     background-color: #333333;
 }
 
@@ -115,7 +115,7 @@ button.purchased:hover {
     font-size: 22px;
     height: 3rem;
     font-family: 'Roboto Mono';
-    color: lightgray;
+    color: darkgray;
     border-width: 0.3rem;
     margin: 5px;
     background-color: #333333;

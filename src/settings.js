@@ -21,8 +21,8 @@ function resetData() {
     data.pointsThisRun = 10;
     data.prestigePoints = 0;
     data.buyGeneratorAmount = 1;
-    data.generatorLevels = [0, 0, 0, 0, 0, 0, 0, 0];
-    data.upgradeLevels = [0, 0, 0, 0, 0, 0, 0, 0];
+    data.generatorAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
+    data.upgradeAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
     location.reload();
 }
 
