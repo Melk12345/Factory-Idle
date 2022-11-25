@@ -15,7 +15,7 @@ function getPointsPerSecond() {
     let pointsPerSecond = 0;
     for (let id = 0; id < generators.length; id++) {
         const amountBonus = ((Math.floor(data.generatorAmounts[id] / 25) * 0.25) + 1);
-        const prestigePointBonus = (data.prestigePoints * getPrestigePointBonus()) + 1;
+        const prestigePointBonus = data.prestigePoints * getPrestigePointBonus() === 0 ? 1 : data.prestigePoints * getPrestigePointBonus();
         pointsPerSecond += getGeneratorEffect(id) * amountBonus * prestigePointBonus;
     }
     return pointsPerSecond;
