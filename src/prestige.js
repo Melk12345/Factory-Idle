@@ -11,7 +11,7 @@ function getPrestigePointsToGain() {
 }
 
 function getPrestigePointBonus() {
-    return 2;
+    return 1.01;
 }
 
 function loadPrestigeText() {
@@ -19,10 +19,10 @@ function loadPrestigeText() {
 }
 
 function updatePrestigeInfo() {
-    bonusPerPrestigePointElement.innerHTML = getPrestigePointBonus();
     currentPrestigePointsElement.innerHTML = format(Math.floor(data.prestigePoints), 0);
     prestigePointsGainedFromPrestigeElement.innerHTML = format(Math.floor(getPrestigePointsToGain()), 0);
-    bonusFromCurrentPrestigePointsElement.innerHTML = format(Math.floor(getPrestigePointBonus() * data.prestigePoints), 0);
+    bonusPerPrestigePointElement.innerHTML = getPrestigePointBonus() - 0.01;
+    bonusFromCurrentPrestigePointsElement.innerHTML = format(Math.floor((getPrestigePointBonus()) * data.prestigePoints), 0);
     bonusFromPrestigePointsAfterPrestigeElement.innerHTML = format(Math.floor(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints)), 0);
 }
 
