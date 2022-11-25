@@ -137,9 +137,10 @@ function getMaxGeneratorAmount(points, id) {
 function buyMaxGenerators() {
     for (let i = generators.length - 1; i >= 0; i--) {
         const element = document.getElementById(`generator${i}-button`);
+        const previousGenerator = i - 1 === -1 ? 0 : i - 1;
         const amount = getMaxGeneratorAmount(data.points, i);
         const cost = getMaxGeneratorCost(amount, i);
-        if (element.style.display !== "hidden" && element.classList.contains("canPurchase")) {
+        if (document.getElementById(`generator${previousGenerator}-button`).style.display !== "hidden" && element.classList.contains("canPurchase")) {
             data.points -= cost;
             data.generatorAmounts[i] += amount;
         }
