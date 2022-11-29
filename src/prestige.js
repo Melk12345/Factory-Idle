@@ -1,16 +1,16 @@
 "use strict";
 
-const bonusPerPrestigePointElement = document.getElementById("bonus-per-prestige-point");
-const currentPrestigePointsElement = document.getElementById("current-prestige-points");
-const prestigePointsGainedFromPrestigeElement = document.getElementById("prestige-points-gained-from-prestige");
-const bonusFromCurrentPrestigePointsElement = document.getElementById("bonus-from-current-prestige-points");
-const bonusFromPrestigePointsAfterPrestigeElement = document.getElementById("bonus-from-prestige-points-after-prestige");
+const gearsElement = document.getElementById("gears");
+const gearsGainedFromPrestigeElement = document.getElementById("gears-gained-from-prestige");
+const bonusPerGearElement = document.getElementById("bonus-per-gear");
+const totalBonusFromGearsElement = document.getElementById("total-bonus-from-gears");
+const totalBonusFromGearsAfterPrestigeElement = document.getElementById("total-bonus-from-gears-after-prestige");
 
-function getPrestigePointsToGain() {
-    return 150 * Math.sqrt(data.pointsThisRun/(1e12));
+function getGearsToGain() {
+    return 150 * Math.sqrt(data.scrapsThisRun/(1e12));
 }
 
-function getPrestigePointBonus() {
+function getGearBonus() {
     return 1.01;
 }
 
@@ -19,16 +19,16 @@ function loadPrestigeText() {
 }
 
 function updatePrestigeInfo() {
-    currentPrestigePointsElement.innerHTML = format(Math.floor(data.prestigePoints), 0);
-    prestigePointsGainedFromPrestigeElement.innerHTML = format(Math.floor(getPrestigePointsToGain()), 0);
-    bonusPerPrestigePointElement.innerHTML = getPrestigePointBonus() - 0.01;
-    bonusFromCurrentPrestigePointsElement.innerHTML = format(Math.floor((getPrestigePointBonus()) * data.prestigePoints), 0);
-    bonusFromPrestigePointsAfterPrestigeElement.innerHTML = format(Math.floor(getPrestigePointBonus() * (getPrestigePointsToGain() + data.prestigePoints)), 0);
+    gearsElement.innerHTML = format(Math.floor(data.gears), 0);
+    gearsGainedFromPrestigeElement.innerHTML = format(Math.floor(getGearsToGain()), 0);
+    bonusPerGearElement.innerHTML = getGearBonus() - 0.01;
+    totalBonusFromGearsElement.innerHTML = format(Math.floor((getGearBonus()) * data.gears), 0);
+    totalBonusFromGearsAfterPrestigeElement.innerHTML = format(Math.floor(getGearBonus() * (getGearsToGain() + data.gears)), 0);
 }
 
 function updatePrestigeButtonColor() {
     const element = document.getElementById("prestige-button");
-    if (getPrestigePointsToGain() < 1) {
+    if (getGearsToGain() < 1) {
         element.classList.add("cantPurchase");
         element.classList.remove("canPurchase");
     } else {
@@ -38,15 +38,15 @@ function updatePrestigeButtonColor() {
 }
 
 function doPrestige() {
-    if (getPrestigePointsToGain() < 1) return;
+    if (getGearsToGain() < 1) return;
     if (data.prestigeConfirmation && !confirm("Are you sure you want to prestige?")) return;
 
-    data.prestigePoints += getPrestigePointsToGain();
-    data.points = 10;
-    data.pointsThisRun = 10;
-    data.generatorAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
+    data.gears += getGearsToGain();
+    data.scraps = 10;
+    data.scrapsThisRun = 10;
+    data.robotAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
 
-    updateGeneratorsText();
-    shouldGeneratorsReveal();
-    getPointsPerSecondText();
+    updateRobotsText();
+    shouldRobotsReveal();
+    getScrapsPerSecondText();
 }

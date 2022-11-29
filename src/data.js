@@ -6,14 +6,14 @@ let data = {
     firstTime: true,
     AFKGains: true,
 
-    // generators
-    points: 10,
-    pointsThisRun: 10,
-    buyGeneratorAmount: 1,
-    generatorAmounts: [0, 0, 0, 0, 0, 0, 0, 0],
+    // robots
+    scraps: 10,
+    scrapsThisRun: 10,
+    buyRobotAmount: 1,
+    robotAmounts: [0, 0, 0, 0, 0, 0, 0, 0],
 
     // prestige
-    prestigePoints: 0,
+    gears: 0,
 
     // upgrades
     upgradeAmounts: [0, 0, 0, 0, 0, 0, 0, 0],

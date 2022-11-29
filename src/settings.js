@@ -1,6 +1,6 @@
 "use strict";
 
-const saveName = 'pointsIncrementalSave';
+const saveName = 'factoryIdleSave';
 
 function saveData() {
     data.time = Date.now();
@@ -17,11 +17,11 @@ function resetData() {
     if (!confirm("Are you sure you want to reset your data? ALL of your progress will be lost and you will need to start over!")) return;
 
     data.time = Date.now();
-    data.points = 10;
-    data.pointsThisRun = 10;
-    data.prestigePoints = 0;
-    data.buyGeneratorAmount = 1;
-    data.generatorAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
+    data.scraps = 10;
+    data.scrapsThisRun = 10;
+    data.gears = 0;
+    data.buyRobotAmount = 1;
+    data.robotAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
     data.upgradeAmounts = [0, 0, 0, 0, 0, 0, 0, 0];
     location.reload();
 }

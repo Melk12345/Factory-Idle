@@ -1,31 +1,31 @@
 "use strict";
 
-const pointsTextElement = document.getElementById("points-text");
-const pointsPerSecondTextElement = document.getElementById("pointsPerSecond-text");
+const scrapsTextElement = document.getElementById("scraps-text");
+const scrapsPerSecondTextElement = document.getElementById("scrapsPerSecond-text");
 
-function getPointsText() {
-    pointsTextElement.textContent = format(data.points, 2);
+function getScrapsText() {
+    scrapsTextElement.textContent = format(data.scraps, 2);
 }
 
-function getPointsPerSecondText() {
-    pointsPerSecondTextElement.textContent = format(getPointsPerSecond(), 2);
+function getScrapsPerSecondText() {
+    scrapsPerSecondTextElement.textContent = format(getScrapsPerSecond(), 2);
 }
 
-function getPointsPerSecond() {
-    let pointsPerSecond = 0;
-    for (let id = 0; id < generators.length; id++) {
-        const amountBonus = ((Math.floor(data.generatorAmounts[id] / 25) * 0.25) + 1);
-        const prestigePointBonus = data.prestigePoints * getPrestigePointBonus() === 0 ? 1 : data.prestigePoints * getPrestigePointBonus();
-        pointsPerSecond += getGeneratorEffect(id) * amountBonus * prestigePointBonus;
+function getScrapsPerSecond() {
+    let scrapsPerSecond = 0;
+    for (let id = 0; id < robots.length; id++) {
+        const amountBonus = ((Math.floor(data.robotAmounts[id] / 25) * 0.25) + 1);
+        const gearBonus = data.gears * getGearBonus() === 0 ? 1 : data.gears * getGearBonus();
+        scrapsPerSecond += getRobotEffect(id) * amountBonus * gearBonus;
     }
-    return pointsPerSecond;
+    return scrapsPerSecond;
 }
 
 function productionLoop(deltaTime) {
-    data.points += getPointsPerSecond() * deltaTime;
-    data.pointsThisRun += getPointsPerSecond() * deltaTime;
-    getPointsText();
-    updateGeneratorBorderColor();
+    data.scraps += getScrapsPerSecond() * deltaTime;
+    data.scrapsThisRun += getScrapsPerSecond() * deltaTime;
+    getScrapsText();
+    updateRobotBorderColor();
     updatePrestigeInfo();
     updatePrestigeButtonColor();
 }
@@ -41,8 +41,8 @@ function calculateAFKGains() {
     const now = Date.now();
     let delta = now - data.time;
     let timeAwayInSeconds = delta / 1000;
-    let pointsGained = getPointsPerSecond() * timeAwayInSeconds;
-    data.points += pointsGained;
+    let scrapsGained = getScrapsPerSecond() * timeAwayInSeconds;
+    data.scraps += scrapsGained;
 
     const seconds = Math.floor((delta / 1000) % 60);
     const minutes = Math.floor((delta / (1000 * 60)) % 60);
@@ -50,8 +50,8 @@ function calculateAFKGains() {
     const days = Math.floor(delta / (1000 * 60 * 60 * 24));
 
     console.log(`You were gone for ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`); 
-    console.log(`pointsGained = ${getPointsPerSecond()} (points/s) * ${format(timeAwayInSeconds, 2)} (time away in seconds)`);
-    console.log(`You gained ${format(pointsGained, 2)} points while you were away!`);
+    console.log(`scrapsGained = ${getScrapsPerSecond()} (scraps/s) * ${format(timeAwayInSeconds, 2)} (time away in seconds)`);
+    console.log(`You gained ${format(scrapsGained, 2)} scraps while you were away!`);
 }
 
 let lastUpdate = Date.now();
@@ -66,8 +66,8 @@ function mainLoop() {
 function load() {
     loadSavedData();
     calculateAFKGains();
-    getPointsPerSecondText();
-    loadGeneratorText();
+    getScrapsPerSecondText();
+    loadRobotText();
     loadPrestigeText()
     loadSettingsText();
 }
@@ -87,4 +87,4 @@ function autoSaveData() {
 
 setInterval(mainLoop, 50);
 setInterval(autoSaveData, 15000);
-setInterval(executeBuyMaxGenerators, 250);
+setInterval(executeBuyMaxRobots, 250);

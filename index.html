@@ -9,102 +9,102 @@
     <script src="src/helper.js" defer></script>
     <script src="src/ui.js" defer></script>
     <script src="src/data.js" defer></script>
-    <script src="src/generators.js" defer></script>
+    <script src="src/robots.js" defer></script>
     <script src="src/prestige.js" defer></script>
     <script src="src/upgrades.js" defer></script>
     <script src="src/settings.js" defer></script>
     <script src="src/main.js" defer></script>
-    <title>Points Incremental</title>
+    <title>Factory Idle</title>
 </head>
 <body>
     <div id="header-container">
-        <p><span id="points-text" style="color: #ABBC4D">100,000</span> points [+<span id="pointsPerSecond-text" style="color: #ABBC4D">0.00</span> points/s]</p>
+        <p><span id="scraps-text" style="color: #ABBC4D">100,000</span> scraps [+<span id="scrapsPerSecond-text" style="color: #ABBC4D">0.00</span> scraps/s]</p>
     </div>
     <div id="menu-container">
-        <button onclick="openMenu(generatorsMenuContainerElement, generatorsMenuButtonElement)" class="menu-buttons" id="generators-menu-button">Generators</button>
+        <button onclick="openMenu(robotsMenuContainerElement, robotsMenuButtonElement)" class="menu-buttons" id="robots-menu-button">Robots</button>
         <button onclick="openMenu(prestigeMenuContainerElement, prestigeMenuButtonElement)" class="menu-buttons" id="prestige-menu-button">Prestige</button>
         <button onclick="openMenu(upgradesMenuContainerElement, upgradesMenuButtonElement)" class="menu-buttons" id="upgrades-menu-button">Upgrades</button>
         <button onclick="openMenu(changelogMenuContainerElement, changelogMenuButtonElement)" class="menu-buttons" id="changelog-menu-button">Changelog</button>
         <button onclick="openMenu(settingsMenuContainerElement, settingsMenuButtonElement)" class="menu-buttons" id="settings-menu-button">Settings</button>
     </div>
-    <div id="generators-container">
-        <button onclick="toggleBuyGeneratorAmount()" id="toggleBuyGeneratorAmountButton" class="settings-buttons">Buy Amount: <span id="buyAmountText">1</span>x</button>
+    <div id="robots-container">
+        <button onclick="toggleBuyRobotAmount()" id="toggleBuyRobotAmountButton" class="settings-buttons">Buy Amount: <span id="buyAmountText">1</span>x</button>
         <button onclick="toggleBuyMax()" id="buyMaxButton" class="settings-buttons">Buy Max: <span id="buyMaxToggle">OFF</span></button> <br>
 
-        <button onclick="buyGenerator(0)" class="generators-buttons" id="generator0-button">
-            <span id="generator0-name">Generator 1</span> (<span id="generator0-amount">0</span>)<br>
-            +<span id="generator0-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator0-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator0-cost">100,000</span> points
+        <button onclick="buyRobot(0)" class="robots-buttons" id="robot0-button">
+            <span id="robot0-name">Robot 1</span> (<span id="robot0-amount">0</span>)<br>
+            +<span id="robot0-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot0-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot0-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(1)" class="generators-buttons" id="generator1-button">
-            <span id="generator1-name">Generator 2</span> (<span id="generator1-amount">0</span>)<br>
-            +<span id="generator1-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator1-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator1-cost">100,000</span> points
+        <button onclick="buyRobot(1)" class="robots-buttons" id="robot1-button">
+            <span id="robot1-name">Robot 2</span> (<span id="robot1-amount">0</span>)<br>
+            +<span id="robot1-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot1-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot1-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(2)" class="generators-buttons" id="generator2-button">
-            <span id="generator2-name">Generator 3</span> (<span id="generator2-amount">0</span>)<br>
-            +<span id="generator2-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator2-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator2-cost">100,000</span> points
+        <button onclick="buyRobot(2)" class="robots-buttons" id="robot2-button">
+            <span id="robot2-name">Robot 3</span> (<span id="robot2-amount">0</span>)<br>
+            +<span id="robot2-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot2-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot2-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(3)" class="generators-buttons" id="generator3-button">
-            <span id="generator3-name">Generator 4</span> (<span id="generator3-amount">0</span>)<br>
-            +<span id="generator3-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator3-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator3-cost">100,000</span> points
+        <button onclick="buyRobot(3)" class="robots-buttons" id="robot3-button">
+            <span id="robot3-name">Robot 4</span> (<span id="robot3-amount">0</span>)<br>
+            +<span id="robot3-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot3-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot3-cost">100,000</span> scraps
         </button> <br>
-        <button onclick="buyGenerator(4)" class="generators-buttons" id="generator4-button">
-            <span id="generator4-name">Generator 5</span> (<span id="generator4-amount">0</span>)<br>
-            +<span id="generator4-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator4-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator4-cost">100,000</span> points
+        <button onclick="buyRobot(4)" class="robots-buttons" id="robot4-button">
+            <span id="robot4-name">Robot 5</span> (<span id="robot4-amount">0</span>)<br>
+            +<span id="robot4-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot4-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot4-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(5)" class="generators-buttons" id="generator5-button">
-            <span id="generator5-name">Generator 6</span> (<span id="generator5-amount">0</span>)<br>
-            +<span id="generator5-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator5-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator5-cost">100,000</span> points
+        <button onclick="buyRobot(5)" class="robots-buttons" id="robot5-button">
+            <span id="robot5-name">Robot 6</span> (<span id="robot5-amount">0</span>)<br>
+            +<span id="robot5-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot5-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot5-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(6)" class="generators-buttons" id="generator6-button">
-            <span id="generator6-name">Generator 7</span> (<span id="generator6-amount">0</span>)<br>
-            +<span id="generator6-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator6-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator6-cost">100,000</span> points
+        <button onclick="buyRobot(6)" class="robots-buttons" id="robot6-button">
+            <span id="robot6-name">Robot 7</span> (<span id="robot6-amount">0</span>)<br>
+            +<span id="robot6-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot6-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot6-cost">100,000</span> scraps
         </button>
-        <button onclick="buyGenerator(7)" class="generators-buttons" id="generator7-button">
-            <span id="generator7-name">Generator 8</span> (<span id="generator7-amount">0</span>)<br>
-            +<span id="generator7-effect">1.00e308</span> points/s <br>
-            Amount Bonus: <span id="generator7-amountBonus">1.00</span>x <br>
-            Cost: <span id="generator7-cost">100,000</span> points
+        <button onclick="buyRobot(7)" class="robots-buttons" id="robot7-button">
+            <span id="robot7-name">Robot 8</span> (<span id="robot7-amount">0</span>)<br>
+            +<span id="robot7-effect">1.00e308</span> scraps/s <br>
+            Amount Bonus: <span id="robot7-amountBonus">1.00</span>x <br>
+            Cost: <span id="robot7-cost">100,000</span> scraps
         </button> <br>
     </div>
     <div id="prestige-container">
-        The more points you get, the more prestige points you can claim! <br> 
-        Prestige points increase points gain and unlock new upgrades, <br> 
-        but you will need to sell your generators and start over.
+        The more scraps you get, the more gears you can claim! <br> 
+        Gears increase scrap gain and unlock new upgrades, <br> 
+        but you will need to sell your factory and start over.
         <br><br><br>
         <table align="center" width="50%">
             <tr align="left">
-                <td>Current prestige points:</td>
-                <td><span id="current-prestige-points">0</span></td>
+                <td>Gears:</td>
+                <td><span id="gears">0</span></td>
             </tr>
             <tr align="left">
-                <td>Prestige points gained from prestige:</td>
-                <td><span id="prestige-points-gained-from-prestige">100</span></td>
+                <td>Gears gained from prestige:</td>
+                <td><span id="gears-gained-from-prestige">100</span></td>
             </tr>
             <tr align="left">
-                <td>Bonus per prestige point:</td>
-                <td><span id="bonus-per-prestige-point">2</span>%</td>
+                <td>Bonus per gear:</td>
+                <td><span id="bonus-per-gear">2</span>%</td>
             </tr>
             <tr align="left">
-                <td>Bonus from current prestige points:</td>
-                <td><span id="bonus-from-current-prestige-points">0</span>%</td>
+                <td>Total Bonus from gears:</td>
+                <td><span id="total-bonus-from-gears">0</span>%</td>
             </tr>
             <tr align="left">
-                <td>Bonus from prestige points after prestige:</td>
-                <td><span id="bonus-from-prestige-points-after-prestige">200</span>%</td>
+                <td>Total Bonus from gears after prestige:</td>
+                <td><span id="total-bonus-from-gears-after-prestige">200</span>%</td>
             </tr>
         </table>
         <button onclick="doPrestige()" id="prestige-button">Prestige!</button> 

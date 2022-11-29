@@ -69,11 +69,11 @@ button.purchased:hover {
     transition-duration: 0.5s;
 }
 
-#generators-container {
+#robots-container {
     text-align: center;
 }
 
-.generators-buttons {
+.robots-buttons {
     margin: 0.4rem 0.2rem 0.4rem 0.2rem;
     font-size: 21px;
     line-height: 1.75;
