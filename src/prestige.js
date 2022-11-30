@@ -19,11 +19,11 @@ function loadPrestigeText() {
 }
 
 function updatePrestigeInfo() {
-    gearsElement.innerHTML = format(Math.floor(data.gears), 0);
-    gearsGainedFromPrestigeElement.innerHTML = format(Math.floor(getGearsToGain()), 0);
+    gearsElement.innerHTML = formatWithCommas(Math.floor(data.gears), 0);
+    gearsGainedFromPrestigeElement.innerHTML = formatWithCommas(Math.floor(getGearsToGain()), 0);
     bonusPerGearElement.innerHTML = getGearBonus() - 0.01;
-    totalBonusFromGearsElement.innerHTML = format(Math.floor((getGearBonus()) * data.gears), 0);
-    totalBonusFromGearsAfterPrestigeElement.innerHTML = format(Math.floor(getGearBonus() * (getGearsToGain() + data.gears)), 0);
+    totalBonusFromGearsElement.innerHTML = formatWithCommas(Math.floor((getGearBonus()) * data.gears), 0);
+    totalBonusFromGearsAfterPrestigeElement.innerHTML = formatWithCommas(Math.floor(getGearBonus() * (getGearsToGain() + data.gears)), 0);
 }
 
 function updatePrestigeButtonColor() {
